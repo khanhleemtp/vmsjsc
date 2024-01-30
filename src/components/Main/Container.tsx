@@ -1,6 +1,9 @@
+import Welcome from './Welcome'
+
 const MainContainer = () => {
   return (
-    <div className="pt-14">
+    <div className="pt-14 container min-h-[calc(100vh-14rem)]">
+      <Welcome />
       Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt a quas
       ipsum quod error, reiciendis quasi aperiam tempora, consequatur
       perspiciatis ab non sed rerum eaque doloremque obcaecati, quibusdam

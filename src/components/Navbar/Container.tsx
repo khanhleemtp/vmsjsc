@@ -8,10 +8,10 @@ const Drawer: FC<
   }>
 > = ({ children, isOpen, handleToggle }) => {
   return (
-    <div className="top-14 fixed">
+    <div className="top-14 fixed z-40">
       <div
         className={clsx(
-          'w-[270px] transition-transform left-0 h-screen fixed z-40 duration-300 p-4 top-14 overflow-y-auto bg-red-200',
+          'w-[270px] transition-transform left-0 h-screen z-40 duration-300 p-4 top-14 overflow-y-auto bg-red-200',
           isOpen ? 'transform-none' : '-translate-x-full'
         )}
       >
@@ -19,7 +19,7 @@ const Drawer: FC<
       </div>
       <div
         className={clsx(
-          'bg-transparent fixed inset-0 z-10 transform transition-opacity',
+          'bg-transparent inset-0 z-10 transform transition-opacity',
           isOpen ? 'opacity-50' : 'opacity-0'
         )}
         onClick={handleToggle}
