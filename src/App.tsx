@@ -1,5 +1,12 @@
+import { NavbarContainer } from './components'
+
 function App() {
-  return <h1 className="text-3xl font-bold underline">Welcome to VMSJSC !</h1>
+  return (
+    <>
+      <NavbarContainer />
+      <div className="mt-14 h-screen bg-gray-100 text-right">Content</div>
+    </>
+  )
 }
 
 export default App
