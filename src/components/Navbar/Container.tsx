@@ -1,4 +1,3 @@
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import clsx from 'clsx'
 import { FC, PropsWithChildren, useState } from 'react'
 
@@ -32,21 +31,36 @@ const Drawer: FC<
 const NavbarContainer = () => {
   const [isOpen, setIsOpen] = useState(false)
 
-  const Icon = isOpen ? XMarkIcon : Bars3Icon
-
   return (
     <>
-      <div className="flex shadow-lg fixed left-0 top-0 right-0 p-1 h-14 text-[#888] z-50 bg-white">
-        <Icon
+      <div className="flex items-start shadow-lg fixed left-0 top-0 right-0 p-1 h-14 text-[#888] z-50 bg-white">
+        <button
+          className="relative overflow-hidden flex items-center justify-center w-12 h-12"
           onClick={() => {
             setIsOpen(!isOpen)
           }}
-          className={clsx(
-            'cursor-pointer w-12 h-12 transition-all delay-100 transform rotate-180'
-          )}
-        />
+        >
+          <span
+            className={clsx(
+              'w-6 h-1 absolute transition-all duration-300  bg-[#888]',
+              isOpen ? 'top-6 rotate-45 -translate-y-0' : '-translate-y-2'
+            )}
+          ></span>
+          <span
+            className={clsx(
+              'w-6 h-1 absolute bg-[#888] transition-all duration-300',
+              isOpen ? 'top-10 -rotate-45 -translate-y-4' : ''
+            )}
+          ></span>
+          <span
+            className={clsx(
+              'w-6 h-1 absolute translate-y-2 bg-[#888] transition-all duration-300',
+              isOpen ? 'hidden' : 'translate-x-0'
+            )}
+          ></span>
+        </button>
 
-        <div className="flex justify-center items-center px-4">
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-10 h-10">
           <img src="/vms-logo.png" className="h-full align-middle" />
         </div>
       </div>
@@ -56,9 +70,9 @@ const NavbarContainer = () => {
           setIsOpen(!isOpen)
         }}
       >
-        <ul>
+        <ul className="pb-14">
           {Array.from({ length: 100 }).map((_, i) => (
-            <li key={i} className="p-2">
+            <li key={i} className="">
               Item {i}
             </li>
           ))}
