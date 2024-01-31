@@ -1,8 +1,25 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      rotate: {
+        40: '40deg'
+      },
+      transformOrigin: {
+        nav: '1.71429px center'
+      },
+      colors: {
+        base: '#5dd39e'
+      },
+      animationDelay: {
+        1600: '1600ms'
+      },
+      fontFamily: {
+        sans: ['Times New Roman', 'sans-serif']
+      }
+    }
   },
-  plugins: [],
-};
+  // eslint-disable-next-line no-undef
+  plugins: [require('tailwindcss-animation-delay')]
+}
