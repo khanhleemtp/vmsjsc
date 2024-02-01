@@ -1,12 +1,12 @@
 // Import Swiper React components
-import { A11y, Autoplay, Pagination } from 'swiper/modules'
+import { css } from '@emotion/react'
+import { A11y, Autoplay, Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
-
 // Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
-import 'swiper/css/scrollbar'
+
 import HomeText from './Text'
 
 const listBanner = [
@@ -26,18 +26,44 @@ const HomeContainer = () => {
     <>
       <Swiper
         // install Swiper modules
-        modules={[Pagination, A11y, Autoplay]}
+        modules={[Pagination, A11y, Autoplay, Navigation]}
         autoplay={{
           delay: 3000,
           waitForTransition: true
         }}
+        css={css`
+          position: relative;
+          &:after {
+            background: rgba(0, 0, 0, 0.3);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 2;
+            content: '';
+          }
+
+          .swiper-pagination-bullet {
+            background-color: #fff;
+            width: 8px;
+            height: 8px;
+            transition: all 0.3s ease;
+          }
+
+          .swiper-pagination-bullet:hover {
+            transform: scale(1.5);
+            opacity: 1;
+          }
+
+          .swiper-pagination-bullet-active {
+            transform: scale(1.5);
+          }
+        `}
         speed={1000}
         slidesPerView={1}
         pagination={{
-          clickable: true,
-          bulletClass:
-            'swiper-pagination-bullet bg-white w-2 h-2 transition-all',
-          bulletActiveClass: 'swiper-pagination-bullet-active scale-150'
+          clickable: true
         }}
         onSwiper={(swiper) => console.log(swiper)}
         onSlideChange={() => console.log('slide change')}

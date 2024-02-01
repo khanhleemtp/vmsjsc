@@ -3,10 +3,9 @@ import 'animate.css'
 
 const HomeText = () => {
   return (
-    <div className="absolute inset-0 z-10 bg-transparent">
+    <div className="absolute inset-0 bg-transparent">
       <div className="h-full flex items-center justify-center relative">
-        <div className="absolute inset-0 bg-black/50 "></div>
-        <div className="container max-w-md mx-auto">
+        <div className="container max-w-md mx-auto z-10">
           <div className="flex flex-wrap justify-center gap-y-[20px]">
             <div className="flex flex-col gap-[20px] px-[12px]">
               {/* Heading */}
