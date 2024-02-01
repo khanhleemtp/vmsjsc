@@ -4,7 +4,8 @@ import 'animate.css'
 const HomeText = () => {
   return (
     <div className="absolute inset-0 z-10 bg-transparent">
-      <div className="h-full flex items-center justify-center">
+      <div className="h-full flex items-center justify-center relative">
+        <div className="absolute inset-0 bg-black/50 "></div>
         <div className="container max-w-md mx-auto">
           <div className="flex flex-wrap justify-center gap-y-[20px]">
             <div className="flex flex-col gap-[20px] px-[12px]">
@@ -12,19 +13,17 @@ const HomeText = () => {
               <div>
                 <h1 className="overflow-hidden text-left font-title text-[36px] font-normal">
                   <span className=" animation-delay-800 ease-in-out inline-block uppercase animate__animated animate__fadeInUp text-primary">
-                    eco
+                    vms
                   </span>
                   <span className=" animation-delay-800 ease-in-out inline-block uppercase animate__animated animate__fadeInDown text-white">
-                    tech solar panels
+                    .,jsc
                   </span>
                 </h1>
               </div>
               {/* Description */}
               <div className="text-[17px] animate__animated animate__fadeInUp animation-delay-1600">
                 <p className="text-white text-left">
-                  Solar panels are perfect if you are looking for a reliable
-                  source of additional power and energy for your home for
-                  office.
+                  Manufacturing, trade and services joint stock company.
                 </p>
               </div>
               {/* Button */}
