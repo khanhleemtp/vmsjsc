@@ -1,11 +1,14 @@
+import Features from './Features'
+import Image from './Image'
 import Title from './Title'
 
 const AboutContainer = () => {
   return (
-    <section>
+    <>
       <Title />
-      AboutContainer
-    </section>
+      <Image />
+      <Features />
+    </>
   )
 }
 

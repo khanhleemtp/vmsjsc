@@ -6,7 +6,6 @@ const baseStyle: CSSObject = {
   transition: 'all .3s ease',
   height: '4px',
   width: '24px',
-  color: '#888',
   backgroundColor: '#888'
 }
 
@@ -66,7 +65,7 @@ const NavbarButton: FC<NavbarButtonProps> = ({ handleToggle, isOpen }) => {
   return (
     <button
       onClick={handleToggle}
-      className="w-12 h-12 flex items-center justify-center leading-[48px] text-[#888]"
+      className="w-12 h-12 flex items-center justify-center leading-[48px]"
     >
       <span
         className={twMerge(

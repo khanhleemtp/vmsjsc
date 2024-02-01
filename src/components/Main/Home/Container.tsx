@@ -33,14 +33,13 @@ const HomeContainer = () => {
         }}
         css={css`
           position: relative;
-          &:after {
+          & .swiper-slide:after {
             background: rgba(0, 0, 0, 0.3);
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            z-index: 2;
             content: '';
           }
 
@@ -74,9 +73,10 @@ const HomeContainer = () => {
         {listBanner.map((item, index) => (
           <SwiperSlide
             key={index}
-            className="w-full h-auto bg-cover bg-center bg-no-repeat"
+            className="w-full h-auto bg-cover bg-center bg-no-repeat relative"
             style={{
               backgroundImage: `url('${item.image}')`
+
               // backgroundPosition: '80% center'
             }}
           ></SwiperSlide>

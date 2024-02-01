@@ -1,7 +1,13 @@
 import { css } from '@emotion/react'
 import 'animate.css'
+import clsx from 'clsx'
+import { useInView } from 'react-intersection-observer'
 
 const HomeText = () => {
+  const [ref, inView] = useInView({
+    triggerOnce: true
+  })
+
   return (
     <div className="absolute inset-0 bg-transparent">
       <div className="h-full flex items-center justify-center relative">
@@ -10,11 +16,24 @@ const HomeText = () => {
             <div className="flex flex-col gap-[20px] px-[12px]">
               {/* Heading */}
               <div>
-                <h1 className="overflow-hidden text-left font-title text-[36px] font-normal">
-                  <span className=" animation-delay-800 ease-in-out inline-block uppercase animate__animated animate__fadeInUp text-primary">
+                <h1
+                  className="overflow-hidden text-left font-title text-[36px] font-normal"
+                  ref={ref}
+                >
+                  <span
+                    className={clsx(
+                      'animation-delay-800 ease-in-out inline-block uppercase text-primary',
+                      inView ? 'animate__animated animate__fadeInUp' : ''
+                    )}
+                  >
                     vms
                   </span>
-                  <span className=" animation-delay-800 ease-in-out inline-block uppercase animate__animated animate__fadeInDown text-white">
+                  <span
+                    className={clsx(
+                      'animation-delay-800 ease-in-out inline-block uppercase text-white',
+                      inView ? 'animate__animated animate__fadeInDown' : ''
+                    )}
+                  >
                     .,jsc
                   </span>
                 </h1>

@@ -12,26 +12,10 @@ const NavbarLink = () => {
         `}
       >
         {navLinks.map((item) => (
-          <li
-            key={item.path}
-            css={css`
-              color: #888;
-              width: '100%';
-              &:hover a {
-                color: #fff;
-                background-color: #5dd39e;
-              }
-              &.active a {
-                color: #fff;
-                background-color: #5dd39e;
-              }
-            `}
-          >
+          <li key={item.path}>
             <a
+              className="block text-body active:bg-primary hover:text-white hover:bg-primary"
               css={css`
-                color: #888;
-                width: '100%';
-                display: block;
                 padding: 11px 56px 11px 16px;
               `}
               href={'#' + item.path}

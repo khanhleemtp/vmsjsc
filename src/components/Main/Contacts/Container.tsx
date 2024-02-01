@@ -1,5 +1,5 @@
 const ContactsContainer = () => {
-  return <div>ContactsContainer</div>
+  return <div>Contacts</div>
 }
 
 export default ContactsContainer
