@@ -11,16 +11,13 @@ import HomeText from './Text'
 
 const listBanner = [
   {
-    image:
-      'https://livedemo00.template-help.com/wt_prod-12465/images/slide-01.jpg'
+    image: '/slide-01.jpg'
   },
   {
-    image:
-      'https://livedemo00.template-help.com/wt_prod-12465/images/slide-02.jpg'
+    image: '/slide-02.jpg'
   },
   {
-    image:
-      'https://livedemo00.template-help.com/wt_prod-12465/images/slide-03.jpg'
+    image: '/slide-03.jpg'
   }
 ]
 
@@ -51,10 +48,10 @@ const HomeContainer = () => {
         {listBanner.map((item, index) => (
           <SwiperSlide
             key={index}
-            className="w-[766px]"
+            className="w-full h-auto bg-cover bg-center bg-no-repeat"
             style={{
-              backgroundImage: `url('${item.image}')`,
-              backgroundPosition: '80% center'
+              backgroundImage: `url('${item.image}')`
+              // backgroundPosition: '80% center'
             }}
           ></SwiperSlide>
         ))}

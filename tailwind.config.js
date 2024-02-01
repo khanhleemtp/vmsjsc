@@ -11,7 +11,9 @@ export default {
       },
       colors: {
         primary: '#00aeef',
-        secondary: '#2e3192'
+        secondary: '#2e3192',
+        heading: '#333',
+        body: '#888'
       },
       animationDelay: {
         1600: '1600ms'
