@@ -10,13 +10,15 @@ export default {
         nav: '1.71429px center'
       },
       colors: {
-        base: '#5dd39e'
+        primary: '#00aeef',
+        secondary: '#2e3192'
       },
       animationDelay: {
         1600: '1600ms'
       },
       fontFamily: {
-        sans: ['Times New Roman', 'sans-serif']
+        title: ['Oswald', 'sans-serif'],
+        sans: ['Open Sans', 'sans-serif']
       }
     }
   },

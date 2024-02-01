@@ -66,7 +66,7 @@ const NavbarButton: FC<NavbarButtonProps> = ({ handleToggle, isOpen }) => {
   return (
     <button
       onClick={handleToggle}
-      className="w-12 h-12 leading-[48px] text-[#888]"
+      className="w-12 h-12 flex items-center justify-center leading-[48px] text-[#888]"
     >
       <span
         className={twMerge(

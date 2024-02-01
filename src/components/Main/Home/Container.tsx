@@ -24,7 +24,7 @@ const listBanner = [
   }
 ]
 
-const Welcome = () => {
+const HomeContainer = () => {
   return (
     <>
       <Swiper
@@ -63,4 +63,4 @@ const Welcome = () => {
   )
 }
 
-export default Welcome
+export default HomeContainer
