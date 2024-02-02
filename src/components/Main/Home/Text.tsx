@@ -1,7 +1,10 @@
-import { css } from '@emotion/react'
+import Button from '@/components/shared/Button'
 import 'animate.css'
 import clsx from 'clsx'
 import { useInView } from 'react-intersection-observer'
+
+const link =
+  'https://livedemo00.template-help.com/wt_prod-12465/images/parallax-04.jpg'
 
 const HomeText = () => {
   const [ref, inView] = useInView({
@@ -46,34 +49,9 @@ const HomeText = () => {
               </div>
               {/* Button */}
               <div className="delay-[2000ms] animate__animated animate__zoomIn animation-delay-1600">
-                <a
-                  href="#"
-                  className="bg-primary text-white border-primary"
-                  css={css`
-                    color: #fff;
-                    font-weight: 700;
-                    text-transform: uppercase;
-                    transition: 0.3s ease-out;
-                    min-width: 200px;
-                    border-radius: 25px;
-                    border-width: 2px;
-                    white-space: nowrap;
-                    padding: 5px 25px;
-                    line-height: 26.6px;
-                    font-size: 14px;
-                    min-width: 200px;
-                    display: inline-block;
-                    text-align: center;
-                  `}
-                >
-                  Find out more
-                </a>
+                <Button href="#" text="Find out more" />
               </div>
             </div>
-
-            {/* Contact */}
-            <div></div>
-            {/*  */}
           </div>
         </div>
       </div>

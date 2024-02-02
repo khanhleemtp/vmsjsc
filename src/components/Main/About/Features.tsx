@@ -1,31 +1,135 @@
 import { ReactComponent as ServiceOne } from '@/assets/service-1.svg'
 import { ReactComponent as ServiceTwo } from '@/assets/service-2.svg'
 import { ReactComponent as ServiceThree } from '@/assets/service-3.svg'
+import Button from '@/components/shared/Button'
 
 import ContainerFluid from '@/components/shared/ContainerFluid'
+import { AnimateType } from '@/types'
 import { css } from '@emotion/react'
+import { FC } from 'react'
+import { useInView } from 'react-intersection-observer'
+
+const link =
+  'https://livedemo00.template-help.com/wt_prod-12465/images/parallax-04.jpg'
 
 interface FeatureSvgProps {
   title: string
   description: string
   component: React.FC<React.SVGProps<SVGSVGElement>>
+  animate: AnimateType
+  delay: number
 }
 
-const listFeturesSvg: FeatureSvgProps[] = [
+const FeatureItem: FC<FeatureSvgProps> = ({
+  title,
+  description,
+  component: Image,
+  animate,
+  delay
+}) => {
+  const [ref, inView] = useInView({
+    triggerOnce: true
+  })
+
+  const animateDelay = `${delay}ms`
+  const animateDuration = inView ? '0.6s' : '1s'
+
+  return (
+    <div
+      ref={ref}
+      css={css`
+        animation-name: ${inView ? animate : ''};
+        animation-duration: 1s;
+        animation-timing-function: ease-in-out;
+        animation-delay: ${animateDelay};
+        animation-duration: ${animateDuration};
+        animation-fill-mode: forwards;
+      `}
+      className="flex flex-col items-center space-y-[15px]"
+    >
+      <div
+        css={css`
+          margin-bottom: -15px;
+          margin-left: -27px;
+          display: flex;
+          flex-direction: column;
+          & > * {
+            margin-bottom: 15px;
+            margin-left: 27px;
+          }
+        `}
+      >
+        {/* Unit left */}
+        <div
+          css={css`
+            flex: 0 0 auto;
+            max-width: 100%;
+          `}
+        >
+          <span className="h-[62px] w-[62px] object-contain inline-block transition-all duration-300">
+            <Image className="h-full w-full object-center" />
+          </span>
+        </div>
+        {/* Unit body */}
+        <div
+          css={css`
+            flex: 0 1 auto;
+          `}
+        >
+          <h6 className="text-[17px] uppercase leading-[25.5px] font-title text-heading text-center">
+            {title}
+          </h6>
+          <p className="text-[12px] mt-[10px] leading-[18px] font-[300] text-center">
+            {description}
+          </p>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+const listFeaturesSvg: FeatureSvgProps[] = [
   {
     title: 'Quality',
     description: 'We provide the best quality products for you',
-    component: ServiceOne
+    component: ServiceOne,
+    animate: AnimateType.FADE_IN_LEFT_SM,
+    delay: 400
   },
   {
     title: 'Fast Delivery',
     description: 'We provide the best quality products for you',
-    component: ServiceTwo
+    component: ServiceTwo,
+    animate: AnimateType.FADE_IN_RIGHT_SM,
+    delay: 600
   },
   {
     title: 'Support',
     description: 'We provide the best quality products for you',
-    component: ServiceThree
+    component: ServiceThree,
+    animate: AnimateType.FADE_IN_LEFT_SM,
+    delay: 800
+  },
+  {
+    title: 'Why Choose Us',
+    description: 'We provide the best quality products for you',
+    component: ServiceOne,
+    animate: AnimateType.FADE_IN_RIGHT_SM,
+    delay: 800
+  },
+  {
+    title: 'Reliability',
+    description: 'We provide the best quality products for you',
+    component: ServiceTwo,
+    animate: AnimateType.FADE_IN_LEFT_SM,
+    delay: 600
+  },
+  {
+    title: 'Change Management',
+    description: 'We provide the best quality products for you',
+    component: ServiceThree,
+    animate: AnimateType.FADE_IN_RIGHT_SM,
+    delay: 400
   }
 ]
 
@@ -58,28 +162,65 @@ const Features = () => {
                 transform: translateX(0) scale(1);
               }
             }
+
+            @keyframes fadeInRightSm {
+              0% {
+                opacity: 0;
+                transform: translateX(150px) scale(0.8);
+              }
+              70% {
+                transform: translateX(-10px) scale(1.02);
+              }
+              100% {
+                opacity: 1;
+                transform: translateX(0) scale(1);
+              }
+            }
           `}
         >
-          {listFeturesSvg.map((item, index) => (
-            <div
-              key={index}
-              css={css`
-                animation: fadeInLeftSm 1s ease-in-out;
-                animation-delay: 600ms;
-              `}
-              className="flex flex-col items-center space-y-[15px]"
-            >
-              <div className="h-[60px] w-full flex items-center justify-center">
-                <item.component className="h-full w-auto" />
-              </div>
-              <h4 className="text-[17px] uppercase leading-[25.5px] font-title text-heading text-center">
-                {item.title}
-              </h4>
-              <p className="text-[12px] leading-[18px] font-[300] text-center">
-                {item.description}
-              </p>
-            </div>
+          {listFeaturesSvg.map((item) => (
+            <FeatureItem key={item.title} {...item} />
           ))}
+        </div>
+        {/* Contact */}
+        <div
+          css={css`
+            background-image: url(${link});
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            &:after {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background-color: rgba(0, 0, 0, 0.5);
+            }
+          `}
+        >
+          <div className="container py-[75px] mt-[60px] relative z-10">
+            <ContainerFluid>
+              <div className="bg-transparent">
+                <div className="w-full h-full flex flex-col gap-4">
+                  <h2 className="text-center text-white uppercase font-title text-[28px] leading-[42px] font-normal animate__animated animate__fadeInLeft animation-delay-600 ease-in-out">
+                    <span className="inline-block text-primary">
+                      advantages &nbsp;{' '}
+                    </span>
+                    <span className="inline-block">you get from</span>
+                  </h2>
+                  <p className="text-white">
+                    After years of experience and more than 500, 000 people
+                    powered with the help of our solar panels, we think the
+                    choice is really obvious here!
+                  </p>
+                  <Button text="Read more about us" type="secondary" href="#" />
+                </div>
+              </div>
+            </ContainerFluid>
+          </div>
         </div>
       </ContainerFluid>
     </div>
