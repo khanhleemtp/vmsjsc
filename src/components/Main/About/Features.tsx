@@ -161,7 +161,7 @@ const Features = () => {
     <div>
       <Title />
       <div
-        className="grid md:grid-col-2 lg:grid-cols-3 container max-w-2xl mx-auto gap-[60px] mt-[65px] overflow-hidden"
+        className="grid md:grid-cols-2 lg:grid-cols-3 container max-w-2xl mx-auto gap-[60px] mt-[65px] overflow-hidden"
         css={css`
           @keyframes fadeInLeftSm {
             0% {

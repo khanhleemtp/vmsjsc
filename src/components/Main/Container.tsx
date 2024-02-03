@@ -17,7 +17,7 @@ const MainContainer = () => {
   return (
     <div className="pt-14 lg:pt-0 container mx-auto min-h-[calc(100vh-14rem)] space-y-[60px]">
       {Object.entries(PageConfig).map(([key, Component]) => (
-        <section id={key}>
+        <section key={key} id={key}>
           <Component />
         </section>
       ))}

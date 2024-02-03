@@ -24,8 +24,16 @@ const listProducts: ProductItem[] = [
 
 const ProductItemContainer: FC<ProductItem> = ({ src, title }) => {
   return (
-    <div className="flex flex-col items-center space-y-[15px] w-full shadow-lg rounded-lg">
-      <div className="w-full">
+    <div
+      className="flex flex-col items-center space-y-[15px] w-full shadow-lg rounded-lg"
+      css={{
+        transition: 'all 0.3s ease',
+        '&:hover': {
+          transform: 'scale(1.05)'
+        }
+      }}
+    >
+      <div className="w-full flex justify-center items-center border-t rounded-lg shadow-inner">
         <img src={src} alt={title} />
       </div>
       <h4 className="text-center text-[20px] font-bold">{title}</h4>
