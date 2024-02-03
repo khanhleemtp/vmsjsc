@@ -3,9 +3,6 @@ import 'animate.css'
 import clsx from 'clsx'
 import { useInView } from 'react-intersection-observer'
 
-const link =
-  'https://livedemo00.template-help.com/wt_prod-12465/images/parallax-04.jpg'
-
 const HomeText = () => {
   const [ref, inView] = useInView({
     triggerOnce: true
@@ -26,7 +23,9 @@ const HomeText = () => {
                   <span
                     className={clsx(
                       'animation-delay-800 ease-in-out inline-block uppercase text-primary',
-                      inView ? 'animate__animated animate__fadeInUp' : ''
+                      inView
+                        ? 'animate__animated animate__fadeInUp'
+                        : 'opacity-0'
                     )}
                   >
                     vms
@@ -34,7 +33,9 @@ const HomeText = () => {
                   <span
                     className={clsx(
                       'animation-delay-800 ease-in-out inline-block uppercase text-white',
-                      inView ? 'animate__animated animate__fadeInDown' : ''
+                      inView
+                        ? 'animate__animated animate__fadeInDown'
+                        : 'opacity-0'
                     )}
                   >
                     .,jsc
@@ -42,13 +43,23 @@ const HomeText = () => {
                 </h1>
               </div>
               {/* Description */}
-              <div className="text-[17px] animate__animated animate__fadeInUp animation-delay-1600">
+              <div
+                className={clsx(
+                  'text-[17px] animation-delay-1600',
+                  inView ? 'animate__animated animate__fadeInUp' : 'opacity-0'
+                )}
+              >
                 <p className="text-white text-left">
                   Manufacturing, trade and services joint stock company.
                 </p>
               </div>
               {/* Button */}
-              <div className="delay-[2000ms] animate__animated animate__zoomIn animation-delay-1600">
+              <div
+                className={clsx(
+                  'delay-[2s] animation-delay-1600',
+                  inView ? ' animate__animated animate__zoomIn' : 'opacity-0'
+                )}
+              >
                 <Button href="#" text="Find out more" />
               </div>
             </div>

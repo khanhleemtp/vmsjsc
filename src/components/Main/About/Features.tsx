@@ -38,6 +38,7 @@ const FeatureItem: FC<FeatureSvgProps> = ({
     <div
       ref={ref}
       css={css`
+        opacity: 0;
         animation-name: ${inView ? animate : ''};
         animation-duration: 1s;
         animation-timing-function: ease-in-out;
@@ -45,7 +46,7 @@ const FeatureItem: FC<FeatureSvgProps> = ({
         animation-duration: ${animateDuration};
         animation-fill-mode: forwards;
       `}
-      className="flex flex-col items-center space-y-[15px]"
+      className="flex flex-col items-center space-y-[15px] w-full"
     >
       <div
         css={css`
@@ -53,6 +54,7 @@ const FeatureItem: FC<FeatureSvgProps> = ({
           margin-left: -27px;
           display: flex;
           flex-direction: column;
+          width: 100%;
           & > * {
             margin-bottom: 15px;
             margin-left: 27px;
@@ -64,6 +66,9 @@ const FeatureItem: FC<FeatureSvgProps> = ({
           css={css`
             flex: 0 0 auto;
             max-width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
           `}
         >
           <span className="h-[62px] w-[62px] object-contain inline-block transition-all duration-300">
@@ -135,7 +140,7 @@ const listFeaturesSvg: FeatureSvgProps[] = [
 
 // https://undraw.co/illustrations
 
-const Features = () => {
+const Title = () => {
   return (
     <div className="container mt-[60px] mx-auto max-w-6xl">
       <ContainerFluid>
@@ -146,83 +151,90 @@ const Features = () => {
           <br />
           <span className="inline-block">ordering at vmsjsc</span>
         </h3>
-        <div
-          className="space-y-[60px] mt-[65px]"
-          css={css`
-            @keyframes fadeInLeftSm {
-              0% {
-                opacity: 0;
-                transform: translateX(-150px) scale(0.8);
-              }
-              70% {
-                transform: translateX(10px) scale(1.02);
-              }
-              100% {
-                opacity: 1;
-                transform: translateX(0) scale(1);
-              }
-            }
-
-            @keyframes fadeInRightSm {
-              0% {
-                opacity: 0;
-                transform: translateX(150px) scale(0.8);
-              }
-              70% {
-                transform: translateX(-10px) scale(1.02);
-              }
-              100% {
-                opacity: 1;
-                transform: translateX(0) scale(1);
-              }
-            }
-          `}
-        >
-          {listFeaturesSvg.map((item) => (
-            <FeatureItem key={item.title} {...item} />
-          ))}
-        </div>
-        {/* Contact */}
-        <div
-          css={css`
-            background-image: url(${link});
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            position: relative;
-            &:after {
-              content: '';
-              position: absolute;
-              top: 0;
-              left: 0;
-              right: 0;
-              bottom: 0;
-              background-color: rgba(0, 0, 0, 0.5);
-            }
-          `}
-        >
-          <div className="container py-[75px] mt-[60px] relative z-10">
-            <ContainerFluid>
-              <div className="bg-transparent">
-                <div className="w-full h-full flex flex-col gap-4">
-                  <h2 className="text-center text-white uppercase font-title text-[28px] leading-[42px] font-normal animate__animated animate__fadeInLeft animation-delay-600 ease-in-out">
-                    <span className="inline-block text-primary">
-                      advantages &nbsp;{' '}
-                    </span>
-                    <span className="inline-block">you get from</span>
-                  </h2>
-                  <p className="text-white">
-                    After years of experience and more than 500, 000 people
-                    powered with the help of our solar panels, we think the
-                    choice is really obvious here!
-                  </p>
-                  <Button text="Read more about us" type="secondary" href="#" />
-                </div>
-              </div>
-            </ContainerFluid>
-          </div>
-        </div>
       </ContainerFluid>
+    </div>
+  )
+}
+
+const Features = () => {
+  return (
+    <div>
+      <Title />
+      <div
+        className="grid md:grid-col-2 lg:grid-cols-3 container max-w-2xl mx-auto gap-[60px] mt-[65px] overflow-hidden"
+        css={css`
+          @keyframes fadeInLeftSm {
+            0% {
+              opacity: 0;
+              transform: translateX(-150px) scale(0.8);
+            }
+            70% {
+              transform: translateX(10px) scale(1.02);
+            }
+            100% {
+              opacity: 1;
+              transform: translateX(0) scale(1);
+            }
+          }
+
+          @keyframes fadeInRightSm {
+            0% {
+              opacity: 0;
+              transform: translateX(150px) scale(0.8);
+            }
+            70% {
+              transform: translateX(-10px) scale(1.02);
+            }
+            100% {
+              opacity: 1;
+              transform: translateX(0) scale(1);
+            }
+          }
+        `}
+      >
+        {listFeaturesSvg.map((item) => (
+          <FeatureItem key={item.title} {...item} />
+        ))}
+      </div>
+      {/* Contact */}
+      <div
+        css={css`
+          background-image: url(${link});
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          position: relative;
+          &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+          }
+        `}
+      >
+        <div className="container py-[75px] mt-[60px] relative z-10">
+          <ContainerFluid>
+            <div className="bg-transparent flex items-center justify-center">
+              <div className="w-full h-full flex flex-col gap-4 items-center max-w-md">
+                <h2 className="text-center text-white uppercase font-title text-[28px] leading-[42px] font-normal animate__animated animate__fadeInLeft animation-delay-600 ease-in-out">
+                  <span className="inline-block">Why &nbsp;</span>
+                  <span className="inline-block text-primary">VMS</span>
+                  <span className="inline-block">.,JSC</span>
+                </h2>
+                <p className="text-white text-center leading-[25.5px]">
+                  After years of experience and more than 500, 000 people
+                  powered with the help of our solar panels, we think the choice
+                  is really obvious here!
+                </p>
+                <Button text="Read more about us" type="secondary" href="#" />
+              </div>
+            </div>
+          </ContainerFluid>
+        </div>
+      </div>
     </div>
   )
 }

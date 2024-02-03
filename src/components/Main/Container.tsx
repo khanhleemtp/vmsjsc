@@ -9,13 +9,13 @@ import ProductsContainer from './Products/Container'
 const PageConfig: Record<NavLinkConfig, FC> = {
   [NavLinkConfig.HOME]: HomeContainer,
   [NavLinkConfig.ABOUT]: AboutContainer,
-  [NavLinkConfig.CONTACTS]: ContactsContainer,
-  [NavLinkConfig.PRODUCTS]: ProductsContainer
+  [NavLinkConfig.PRODUCTS]: ProductsContainer,
+  [NavLinkConfig.CONTACTS]: ContactsContainer
 }
 
 const MainContainer = () => {
   return (
-    <div className="pt-14 container mx-auto min-h-[calc(100vh-14rem)] space-y-[60px]">
+    <div className="pt-14 lg:pt-0 container mx-auto min-h-[calc(100vh-14rem)] space-y-[60px]">
       {Object.entries(PageConfig).map(([key, Component]) => (
         <section id={key}>
           <Component />

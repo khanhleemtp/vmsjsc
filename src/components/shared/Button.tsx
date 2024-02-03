@@ -13,7 +13,7 @@ const Button: FC<ButtonProps> = ({ href, text, type = 'primary' }) => {
     <a
       href={href}
       className={clsx(
-        'border-primary text-white',
+        'border-primary text-white w-fit',
         type === 'primary' ? 'bg-primary' : 'bg-transparent'
       )}
       css={css`

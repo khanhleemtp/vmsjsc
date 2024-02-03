@@ -1,10 +1,11 @@
-import { MainContainer, NavbarContainer } from './components'
+import { FooterContainer, MainContainer, NavbarContainer } from './components'
 
 function App() {
   return (
     <>
       <NavbarContainer />
       <MainContainer />
+      <FooterContainer />
     </>
   )
 }
