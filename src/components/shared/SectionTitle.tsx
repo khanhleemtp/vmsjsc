@@ -13,7 +13,7 @@ interface TitleProps {
 
 export const SectionTitle: FC<TitleProps> = ({ content }) => {
   return (
-    <div className="container mt-[60px] mx-auto max-w-6xl">
+    <div className="container mx-auto max-w-6xl">
       <ContainerFluid>
         <h3 className="overflow-hidden text-center uppercase font-title text-[28px] leading-[42px] font-normal">
           {content.map((item, index) => (
