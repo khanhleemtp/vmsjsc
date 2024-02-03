@@ -53,13 +53,14 @@ const FeatureItem: FC<FeatureSvgProps> = ({
           margin-bottom: -15px;
           margin-left: -27px;
           display: flex;
-          flex-direction: column;
+
           width: 100%;
           & > * {
             margin-bottom: 15px;
             margin-left: 27px;
           }
         `}
+        className="flex-col md:flex-row text-center md:text-left"
       >
         {/* Unit left */}
         <div
@@ -81,10 +82,10 @@ const FeatureItem: FC<FeatureSvgProps> = ({
             flex: 0 1 auto;
           `}
         >
-          <h6 className="text-[17px] uppercase leading-[25.5px] font-title text-heading text-center">
+          <h6 className="text-[17px] uppercase leading-[25.5px] font-title text-heading">
             {title}
           </h6>
-          <p className="text-[12px] mt-[10px] leading-[18px] font-[300] text-center">
+          <p className="text-[12px] mt-[10px] leading-[18px] font-[300]">
             {description}
           </p>
         </div>
@@ -103,35 +104,35 @@ const listFeaturesSvg: FeatureSvgProps[] = [
   },
   {
     title: 'Fast Delivery',
-    description: 'We provide the best quality products for you',
+    description: 'We have the best delivery service for yo',
     component: ServiceTwo,
     animate: AnimateType.FADE_IN_RIGHT_SM,
     delay: 600
   },
   {
     title: 'Support',
-    description: 'We provide the best quality products for you',
+    description: 'We always support you 24/7',
     component: ServiceThree,
     animate: AnimateType.FADE_IN_LEFT_SM,
     delay: 800
   },
   {
     title: 'Why Choose Us',
-    description: 'We provide the best quality products for you',
+    description: 'We commit quality and reliability to you',
     component: ServiceOne,
     animate: AnimateType.FADE_IN_RIGHT_SM,
     delay: 800
   },
   {
     title: 'Reliability',
-    description: 'We provide the best quality products for you',
+    description: 'Highly reliable and durable products for you',
     component: ServiceTwo,
     animate: AnimateType.FADE_IN_LEFT_SM,
     delay: 600
   },
   {
     title: 'Change Management',
-    description: 'We provide the best quality products for you',
+    description: 'We plan and manage the change for you',
     component: ServiceThree,
     animate: AnimateType.FADE_IN_RIGHT_SM,
     delay: 400
@@ -147,9 +148,8 @@ const Title = () => {
         <h3 className="overflow-hidden text-center uppercase font-title text-[28px] leading-[42px] font-normal animate__animated animate__fadeInLeft animation-delay-600 ease-in-out">
           <span className="inline-block text-primary">advantages &nbsp; </span>
           <span className="inline-block">you get from</span>
-          <span className="inline-block">you get from</span>
           <br />
-          <span className="inline-block">ordering at vmsjsc</span>
+          <span className="inline-block">ordering at Vmsjsc</span>
         </h3>
       </ContainerFluid>
     </div>
@@ -161,7 +161,7 @@ const Features = () => {
     <div>
       <Title />
       <div
-        className="grid md:grid-cols-2 lg:grid-cols-3 container max-w-2xl mx-auto gap-[60px] mt-[65px] overflow-hidden"
+        className="grid md:grid-cols-2 lg:grid-cols-3 container max-w-6xl mx-auto gap-[60px] mt-[65px] overflow-hidden"
         css={css`
           @keyframes fadeInLeftSm {
             0% {
@@ -215,7 +215,7 @@ const Features = () => {
           }
         `}
       >
-        <div className="container py-[75px] mt-[60px] relative z-10">
+        <div className="container mx-auto py-[75px] mt-[60px] relative z-10">
           <ContainerFluid>
             <div className="bg-transparent flex items-center justify-center">
               <div className="w-full h-full flex flex-col gap-4 items-center max-w-md">

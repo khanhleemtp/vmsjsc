@@ -1,6 +1,8 @@
 import { NavLinkConfig } from '@/config'
 import 'animate.css'
+import clsx from 'clsx'
 import { FC } from 'react'
+import { InView } from 'react-intersection-observer'
 import AboutContainer from './About/Container'
 import ContactsContainer from './Contacts/Container'
 import HomeContainer from './Home/Container'
@@ -15,11 +17,27 @@ const PageConfig: Record<NavLinkConfig, FC> = {
 
 const MainContainer = () => {
   return (
-    <div className="pt-14 lg:pt-0 container mx-auto min-h-[calc(100vh-14rem)] space-y-[60px]">
+    <div className="pt-14 lg:pt-0">
       {Object.entries(PageConfig).map(([key, Component]) => (
-        <section key={key} id={key}>
-          <Component />
-        </section>
+        <InView key={key}>
+          {({ ref: inViewRef, inView }) => {
+            if (inView) {
+              console.log('inView', key)
+            }
+            return (
+              <section
+                ref={inViewRef}
+                key={key}
+                id={key}
+                className={clsx(
+                  key === 'home' ? '' : 'pt-[65px] lg:pt-[105px]'
+                )}
+              >
+                <Component />
+              </section>
+            )
+          }}
+        </InView>
       ))}
     </div>
   )

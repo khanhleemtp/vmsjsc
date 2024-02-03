@@ -23,7 +23,7 @@ const listBanner = [
 
 const HomeContainer = () => {
   return (
-    <>
+    <div className="relative w-full overflow-hidden bg-primary-100">
       <Swiper
         // install Swiper modules
         modules={[Pagination, A11y, Autoplay, Navigation]}
@@ -50,6 +50,12 @@ const HomeContainer = () => {
             transition: all 0.3s ease;
           }
 
+          @media (min-width: 768px) {
+            .swiper-pagination {
+              bottom: 125px;
+            }
+          }
+
           .swiper-pagination-bullet:hover {
             transform: scale(1.5);
             opacity: 1;
@@ -67,7 +73,7 @@ const HomeContainer = () => {
         onSwiper={(swiper) => console.log(swiper)}
         onSlideChange={() => console.log('slide change')}
         parallax={true}
-        className="h-[84.5vh] relative"
+        className="h-[84.5vh] relative md:pb-[105px]"
       >
         <HomeText />
         {listBanner.map((item, index) => (
@@ -76,13 +82,12 @@ const HomeContainer = () => {
             className="w-full h-auto bg-cover bg-center bg-no-repeat relative"
             style={{
               backgroundImage: `url('${item.image}')`
-
               // backgroundPosition: '80% center'
             }}
           ></SwiperSlide>
         ))}
       </Swiper>
-    </>
+    </div>
   )
 }
 

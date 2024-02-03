@@ -8,26 +8,28 @@ const ContactsContainer = () => {
   return (
     <ContainerFluid>
       <SectionTitle content={[{ content: 'Contact us' }]} />
-      <div className="flex items-center justify-center mt-[60px]">
-        <img
-          className=" h-auto inline-block align-middle max-w-full rounded-md"
-          src={link}
-          alt="Contact"
-        />
-      </div>
-      <div className="text-center">
-        <h6 className="text-[20px] font-bold text-center mt-[30px] mb-[15px]">
-          HQ Office (Boston, MA, USA)
-        </h6>
-        <p>
-          8949 Kenamar Drive, Suite 101
-          <br />
-          San Diego, CA 92121
-        </p>
-        <dl>
-          <dt className="font-bold text-sm">Phone: </dt>
-          <dd>+1 (800) 123 1234</dd>
-        </dl>
+      <div className="md:flex justify-center items-center md:gap-4">
+        <div className="flex items-center justify-center mt-[60px]">
+          <img
+            className=" h-auto inline-block align-middle max-w-full rounded-md"
+            src={link}
+            alt="Contact"
+          />
+        </div>
+        <div className="text-center md:text-left">
+          <h6 className="text-[20px] font-bold mt-[30px] mb-[15px]">
+            Thôn Thịnh Nội
+          </h6>
+          <p>
+            Xã Mỹ Thắng
+            <br />
+            Huyện Mỹ Lộc, Tỉnh Nam Định
+          </p>
+          <dl className="md:flex md:items-center">
+            <dt className="font-bold text-sm">Email:&nbsp; </dt>
+            <dd>@info.vmsjsc.com</dd>
+          </dl>
+        </div>
       </div>
     </ContainerFluid>
   )
