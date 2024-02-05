@@ -19,7 +19,6 @@ const Button: FC<ButtonProps> = ({ href, text, type = 'primary' }) => {
       css={css`
         font-weight: 700;
         text-transform: uppercase;
-        transition: 0.3s ease-out;
         min-width: 200px;
         border-radius: 25px;
         border-width: 2px;
